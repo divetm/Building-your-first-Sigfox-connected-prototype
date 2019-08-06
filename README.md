@@ -166,7 +166,7 @@ It also uses a second number called Porting Authorization Code (PAC) that you ca
 
 These identifiers will come in handy if you want to register your device on Sigfox's backend.
 [This document](https://storage.sbg1.cloud.ovh.net/v1/AUTH_669d7dfced0b44518cb186841d7cbd75/staging_docs/att10756424-Customer%20helpbook_2017.pdf) explains what Sigfox's backend is and how to use it.  
-TLDR: It basically allows you to manage all your connected devices, connect new ones and manage how messages received from/sent to your devices should be handled (more on this [here](#visualizing-your-data-and-sending-instructions-callbacks-and-downlinks)).
+TLDR: It basically allows you to manage all your connected devices, connect new ones and manage how messages received from/sent to your devices should be handled.
 
 Most of your Sigfox-ready devices will come with an app or website that allows you to visualize the data sent by the device. In that case, you don't need Sigfox's backend, since the manufacturer will have taken care of that.
 
