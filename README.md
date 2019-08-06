@@ -414,6 +414,10 @@ Finally, a webhook reply block sends the name in HEX format back to Sigfox:
 
 **Your data workflow is ready!**
 
+<p align="center">
+  <img width="700" src="final solution gif">
+</p>
+
 Conclusion
 ----
 This solution could be enhanced with Losant's numerous possibilities: you could build a dashboard to visualize your data in a completely different and original way, you could add a "Slack" block to your workflow so that an alert is sent to you or someone else on Slack when someone scans their finger, you could set off an alarm on the device if an unauthorized fingerprint was scanned...  
