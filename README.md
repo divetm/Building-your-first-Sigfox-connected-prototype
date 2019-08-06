@@ -210,17 +210,212 @@ If you set up the downlink parameter in your backend correctly (as explained abo
 Building your own prototype
 ----
 ### Methodology
-TODO
+In this repo we will see how to build a simple fingerprint scanner that shows a welcome message on a LCD display after a fingerprint is scanned.  
+Once the fingerprint is scanned and identified, the device sends the fingerprint ID to Losant through Sigfox. On Losant, a query is done to get the name associated to the said fingerprint ID in a data table. The name is then sent back to the device through Sigfox as a downlink message. Finally, the name is displayed in a welcome message on the LCD display.
+
+To do so, we use an Agile methodology:
+
+<p align="center">
+  <img width="700" src="methodo">
+</p>
+
+The first step requires you to think about your idea and structure your thinking before starting developping anything. There are 3 principal questions that you want to get answered:
+* What data do you want?
+* What do you need your hardware to be?
+* How should you store and process the data?
+
+Start with the first question: the best way to answer this question is to ask "What data do I need? What will the data tell me?". Then ask yourself questions like "How frequently do I need data points?" and "What size are the data points I need?". And, finally one of the most important questions: "How should/will my data be used?". Ultimately, **question your project and decide if Sigfox is the most appropriate choice or not**.  
+Once you've thought about this, start thinking about how to get the data that you need. This will bring you to thinking about what your hardware needs to be and do: "What sensors do I need? How resistant must my hardware be?"... Search for existing solutions and answer the question **"Should I build it?"**.  
+And, at the same time, consider the many ways your data could be stored, visualized and analyzed and chose the best one. Ask yourself if the end-user should be able to access the raw data or not; if they should be able to access the data from a phone; if the platform and the hardware need a bidirectional communication, etc.. This will help you understand **how your data will be used, what you want to extract from it and therefore what platform you should use to process it**.
+
+<p align="center">
+  <img width="700" src="structure your idea">
+</p>
+
+Once you have a very good idea of what you need and what you want to build, start by assembling your hardware. Indeed, this will tell you what the limits of your project are and help you design your firmware and the data workflow.  
+At the end of the first iteration of this process, you will have built a prototype and will start getting the first results. Visualize and use them. And iterate. After a couple of iterations, you will have conceived a MVP (minimum valuable product). Don't be shy, never hesitate, and deliver too soon! You will get constructive feedback from "Early adopters": use it to iterate and build the product they really need.
+
+In this example, the data needed is the identity of the people getting into a building. It will only be used a few times a day and the data is not heavy, so Sigfox seems like the correct choice. Plus, we will be able to use Sigfox's cloud to send the data to other platforms (to fact check fingerprints for instance). To do so, the hardware will need a fingerprint scanner and doesn't need to be too resistant. So, we can build it easily by using cheap and ready-to-use components that we can buy online. Finally, we will use a LCD display to visualize the data and a platform called Losant to store and process the data, because we don't need heavy data processing but need a platform that is able to send a response back to the device through a Sigfox downlink message.
 
 ### The hardware
-TODO
+To build this prototype you will only need a few things:
+* A devkit. We will be using NXTIoT's Devkit 2.0, which you can buy [here](https://partners.sigfox.com/products/devkit-2.0)
+
+<p align="center">
+  <img width="700" src="devkit">
+</p>
+
+* A fingerprint scanner. The one used here is [Adafruit's fingerprint sensor 751](https://www.adafruit.com/product/751)
+
+<p align="center">
+  <img width="700" src="fingerprint sensor">
+</p>
+
+* A LCD display. Here we use Sunfounder's LCD display (2x16) that you can buy [here](https://www.sunfounder.com/i2clcd.html)
+
+<p align="center">
+  <img width="700" src="lcd display">
+</p>
+
+* Additionally, we decided to use a photoresistor and a resistor to build a finger presence detector
+
+<p align="center">
+  <img width="700" src="photoresistor">
+</p>
+
+Connecting everything is pretty simple:
+* The fingerprint sensor comes with a 6-cable-cord. You will only need to use 4 of those cables:
+
+<p align="left">
+  <img width="700" src="fingerprint sensor 6 cables">
+</p>
+
+<p align="right">
+  <img width="700" src="fingerprint sensor 6 cables">
+</p>
+
+and connect them in the following manner:
+
+<p align="center">
+  <img width="700" src="fingerprint sensor connected to devkit">
+</p>
+
+* In order to create a finger presence detector with a photoresistor and a resistor, build the following circuit:
+
+<p align="center">
+  <img width="700" src="photoresistor and resistor connected to devkit">
+</p>
+
+This will give you an analog reading of the photoresistor's voltage, on the devkit's pin A0. By placing the photoresistor right under the fingerprint scanner's little window, the device will be able to detect a finger being pressed against the scanner, as the photoresistor's value will increase. We use this to activate the scanner only when a finger is detected and, therefore, save some energy.
+
+* The LCD display comes with an I2C Interface Adapter that you will need to solder to the display itself, if it is not already in place. It is pretty straight forward: there are 16 pinholes in the LCD display and 16 pins on the adapter. Holding the LCD display upside down and the adapter facing up, just insert one in the other and solder the 16 pins. You should get something like this:
+
+<p align="center">
+  <img width="700" src="LCD display with adapter downloaded from internet">
+</p>
+
+Then connect the adapter to the devkit like this:
+
+<p align="center">
+  <img width="700" src="lcd display connected to the devkit">
+</p>
+
+Your device will look like this:
+
+<p align="center">
+  <img width="700" src="final devkit real pic">
+</p>
 
 ### The firmware
-TODO
+**WARNING!**
+*This firmware has been optimized, but is still very heavy. It is possible that you encounter some stability problems with your devkit once you upload this firmware to it. Indeed, the program uses up a considerable part of the flash memory, and Arduinos don't like that...*
+
+You will find the complete and commented firmware [here](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Firmware/fingerprint_webinar_2.ino).
+
+You might need to download some of the libraries used if you haven't used them before (click [here](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/tree/master/Firmware/Libraries) to see the libraries you need). After that you will just need to upload it to your devkit.  
+
+The devkit will wait for a finger to be placed on the finger detector. It will then activate the scanner. Once a fingerprint is scanned and identified, it will add the fingerprint's ID to the payload (```buffer```) that will be sent through Sigfox.
+
+If the fingerprint's ID is 1 (administrator's fingerprint), the device will give the option to register a new fingerprint or to erase one. According to what the administrator choses to do, a new fingerprint can be added to the device's memory with the ID of their choice; or, a fingerprint can be erased from the device's memory. The administrator's choice and the modified ID (added or deleted) are then added to the ```buffer```. The ```buffer``` is then sent as a 3-byte long message through Sigfox.  
+If the fingerprint's ID is not 1, two bytes representing 0 will be added to the ```buffer```, so the message received by Losant is always the same size, no matter what (this will make the decoding easier on Losant). The ```buffer``` is then sent as a 3-byte long message through Sigfox.
+
+The device will then wait for a downlink message containing the person-whose-fingerprint-was-identified's name. The name will arrive as an 8-byte message in HEX format. It is translated into ASCII format so it can be read by a human as normal text.
+
+The name is then showed on the LCD display.
 
 ### Using Losant to design your data workflow
-TODO
+By now you should know how to set a Bidirectional Callback between Sigfox's backend and Losant. You should also know how to set the Downlinks to "Callback" and use Losant to send a Downlink response to your device. If not, read about this [here](#using-a-platform-to-design-your-data-workflow) and [here](#making-your-device-request-a-downlink).
+
+Once you have set up the bidirectional communication between Sigfox's backend and Losant, you are ready to start using Losant to process the data sent by your device and deciding on what should be sent back as a Downlink response.
+
+The first thing you want to do is create a device on Losant called "Fingerprint scanner", for example. Add the following attributes to it:
+
+<p align="center">
+  <img width="700" src="final devkit real pic">
+</p>
+
+This will allow you to easily create a dashboard, should you need to visualize these attributes' values, on Losant.
+
+Then, create a "Data table" on Losant that contains the Fingerprint IDs and the names associated to each one of them:
+
+<p align="center">
+  <img width="700" src="final devkit real pic">
+</p>
+
+Finally, build the following workflow:
+
+<p align="center">
+  <img width="700" src="final devkit real pic">
+</p>
+
+The webhook will trigger the workflow. The [first "Function" block](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Losant/firstFunctionBlockInWorkflow.js) parses the 3-byte long message sent by the device and translates it into the following variables:
+* scanned fingerprint ID
+* administrator's choice (if the scanned fingerprint ID is 1, the administrator has scanned their fingerprint and decided to add or erase a fingerprint from the device. If not, this will be equal to 0)
+* the ID modified by the administrator (the fingerprint ID the administrator has chosen to add or erase. 0 if the fingerprint scanned is not the administrator's)
+
+A query will give us the name associated to the scanned fingerprint in the "Data Table" we created on Losant.
+
+<p align="center">
+  <img width="700" src="query">
+</p>
+
+A "Conditional" block checks if the scanned fingerprint is the administrator's.
+
+<p align="center">
+  <img width="700" src="1st conditional block">
+</p>
+
+If so, the workflow continues with a second "Conditional" block that checks if the administrator decided to add or erase a fingerprint from the records.
+
+<p align="center">
+  <img width="700" src="2nd conditional block">
+</p>
+
+The corresponding action is taken on the Losant's data table (added or deleted row).
+
+<p align="left">
+  <img width="700" src="add row">
+</p>
+
+<p align="right">
+  <img width="700" src="erase row">
+</p>
+
+A webhook reply block sends a simple "O1" response as a symbol of a successful process.
+
+<p align="center">
+  <img width="700" src="webhook reply 01">
+</p>
+
+```
+{
+  "{{data.body.device}}":
+  {
+    "downlinkData": "0000000000000001"
+  }
+}
+```
+
+If the scanned fingerprint is not the administrator's, the device's attributes on Losant are updated. Then, a ["Function" block](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Losant/secondFunctionBlockInWorkflow.js) translates the name (that we got from the query) from ASCII format to HEX format (on Sigfox the data has to be transfered in HEX format) and checks that the payload will be exactly 8-bytes long (avoids getting an error from Sigfox).  
+Finally, a webhook reply block sends the name in HEX format back to Sigfox:
+
+<p align="center">
+  <img width="700" src="webhook reply name">
+</p>
+
+```
+{
+  "{{data.body.device}}":
+  {
+    "downlinkData": "{{data.body.nombre}}"
+  }
+}
+```
+
+**Your data workflow is ready!**
 
 Conclusion
 ----
-TODO (Consider data visualization, data analysis and iteration: Agile methodology. Goal of IoT: gain access to data previously unaccessible to optimize processes through data analysis)
+This solution could be enhanced with Losant's numerous possibilities: you could build a dashboard to visualize your data in a completely different and original way, you could add a "Slack" block to your workflow so that an alert is sent to you or someone else on Slack when someone scans their finger, you could set off an alarm on the device if an unauthorized fingerprint was scanned...  
+Always consider the data you get from you IoT device as the real goal of IoT! Never disregard how the data should be visualized, processed and used after analysis. This data could enhance your security, optimize processes and save you energy, money and time.
+Finally, remember to always adopt deliver too soon and use the feedback to iterate.
