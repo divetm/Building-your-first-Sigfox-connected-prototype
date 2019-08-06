@@ -200,11 +200,11 @@ In [this doc](https://github.com/sigfox/sigfox-downlink#set-up-your-downlink-cal
 Remember that a Downlink message will only be sent to your device if your device sent a message with a request for such a response first?  
 So, you probably what to know how to make your device request a Downlink message now. It might seem a bit technical but it is actually very simple.  
 For this, you need to know that Sigfox modules usually work with a language that understands what we call *AT Commands*. This means that if you want to communicate with the module directly you will have to send instructions under the AT command format. For example:
-* "AT$RC" will allow you to reset the module's channel  
-* "AT$SF=..." will order the module to send whatever comes after the equal sign through Sigfox's network  
-You can usually check what commands are available in your module's documentation (like [this one](https://www.onsemi.com/pub/Collateral/AX-SIGFOX-D.PDF) for the Wisol module AX-Sigfox). Some, like the Wisol module, will give you there ID and PAC with the commands "AT$I=10" and "AT$I=11" for example.
+* ```AT$RC``` will allow you to reset the module's channel  
+* ```AT$SF=...``` will order the module to send whatever comes after the equal sign through Sigfox's network  
+You can usually check what commands are available in your module's documentation (like [this one](https://www.onsemi.com/pub/Collateral/AX-SIGFOX-D.PDF) for the Wisol module AX-Sigfox). Some, like the Wisol module, will give you there ID and PAC with the commands ```AT$I=10``` and ```AT$I=11``` for example.
 
-In any case, if you want to receive a downlink response to a message sent by your device, you just have to add ",1" to the 12-bytes-max payload you send with the command "AT$SF=..." (e.g. "AT$SF=4d6174746869657542657374,1" will send the payload "4d6174746869657542657374" to Sigfox's network and request a downlink response).
+In any case, if you want to receive a downlink response to a message sent by your device, you just have to add ",1" to the 12-bytes-max payload you send with the command ```AT$SF=...``` (e.g. ```AT$SF=4D6174746869657542657374,1``` will send the payload ```4D6174746869657542657374``` to Sigfox's network and request a downlink response).
 If you set up the downlink parameter in your backend correctly (as explained above), the device will receive the downlink you wanted it to.
 
 Building your own prototype
