@@ -47,7 +47,7 @@ However, the size limit is actually not that penalizing. Take a look at what can
 
 
 <p align="center">
-  <img width="900" src="what can be sent with 12 bytes">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-06%20a%20la(s)%2018.25.33.png">
 </p>
 
 
