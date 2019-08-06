@@ -4,7 +4,7 @@
 Introduction
 ----
 The goal of this repo is to learn how to build your own IoT device prototype using a Sigfox-connected devkit and a couple of components.  
-If you've read [this repo](https://github.com/divetm/Getting-started-with-Sigfox) before, some of this might feel like a deja-vu. The idea is always to guide you from zero to a hundred. But, if you don't want to re-read something you already know, you can jump to [this section](#building-your-own-prototype).  
+If you've read [this repo](https://github.com/divetm/Getting-started-with-Sigfox) before, some of this might feel like a déjà-vu. The idea is always to guide you from zero to a hundred. But, if you don't want to re-read something you already know, you can jump to [this section](#building-your-own-prototype).  
 
 1. [A quick overview of what Sigfox is](#a-quick-overview-of-what-sigfox-is)  
   a. [The technology](#the-technology)  
