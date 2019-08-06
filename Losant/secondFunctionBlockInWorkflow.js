@@ -32,3 +32,6 @@ if (payload.data.body.nombre.length < 16){
       payload.data.body.nombre += "0";
 	 }
 }
+else if (payload.data.body.nombre.length > 16){
+    payload.data.body.nombre = payload.data.body.nombre.substr(0,16);
+}
