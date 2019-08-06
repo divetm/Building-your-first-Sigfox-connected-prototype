@@ -216,7 +216,7 @@ Once the fingerprint is scanned and identified, the device sends the fingerprint
 To do so, we use an Agile methodology:
 
 <p align="center">
-  <img width="700" src="methodo">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-06%20a%20la(s)%2018.27.26.png">
 </p>
 
 The first step requires you to think about your idea and structure your thinking before starting developping anything. There are 3 principal questions that you want to get answered:
@@ -229,7 +229,7 @@ Once you've thought about this, start thinking about how to get the data that yo
 And, at the same time, consider the many ways your data could be stored, visualized and analyzed and chose the best one. Ask yourself if the end-user should be able to access the raw data or not; if they should be able to access the data from a phone; if the platform and the hardware need a bidirectional communication, etc.. This will help you understand **how your data will be used, what you want to extract from it and therefore what platform you should use to process it**.
 
 <p align="center">
-  <img width="700" src="structure your idea">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-06%20a%20la(s)%2018.28.40.png">
 </p>
 
 Once you have a very good idea of what you need and what you want to build, start by assembling your hardware. Indeed, this will tell you what the limits of your project are and help you design your firmware and the data workflow.  
@@ -240,38 +240,20 @@ In this example, the data needed is the identity of the people getting into a bu
 ### The hardware
 To build this prototype you will only need a few things:
 * A devkit. We will be using NXTIoT's Devkit 2.0, which you can buy [here](https://partners.sigfox.com/products/devkit-2.0)
-
-<p align="center">
-  <img width="700" src="devkit">
-</p>
-
 * A fingerprint scanner. The one used here is [Adafruit's fingerprint sensor 751](https://www.adafruit.com/product/751)
-
-<p align="center">
-  <img width="700" src="fingerprint sensor">
-</p>
-
 * A LCD display. Here we use Sunfounder's LCD display (2x16) that you can buy [here](https://www.sunfounder.com/i2clcd.html)
 
 <p align="center">
-  <img width="700" src="lcd display">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/IMG_4361.jpg">
 </p>
 
 * Additionally, we decided to use a photoresistor and a resistor to build a finger presence detector
 
-<p align="center">
-  <img width="700" src="photoresistor">
-</p>
-
 Connecting everything is pretty simple:
 * The fingerprint sensor comes with a 6-cable-cord. You will only need to use 4 of those cables:
 
-<p align="left">
-  <img width="700" src="fingerprint sensor 6 cables">
-</p>
-
-<p align="right">
-  <img width="700" src="fingerprint sensor 6 cables">
+<p align="center">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-06%20a%20la(s)%2018.33.05.png">
 </p>
 
 and connect them in the following manner:
