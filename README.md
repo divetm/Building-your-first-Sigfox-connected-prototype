@@ -381,7 +381,7 @@ The corresponding action is taken on the Losant's data table (added or deleted r
   <img width="700" src="erase row">
 </p>
 
-A webhook reply block sends a simple "O1" response as a symbol of a successful process.
+A webhook reply block sends a simple "01" response as a symbol of a successful process.
 
 <p align="center">
   <img width="700" src="webhook reply 01">
