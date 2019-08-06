@@ -204,7 +204,7 @@ For this, you need to know that Sigfox modules usually work with a language that
 * ```AT$SF=...``` will order the module to send whatever comes after the equal sign through Sigfox's network  
 You can usually check what commands are available in your module's documentation (like [this one](https://www.onsemi.com/pub/Collateral/AX-SIGFOX-D.PDF) for the Wisol module AX-Sigfox). Some, like the Wisol module, will give you there ID and PAC with the commands ```AT$I=10``` and ```AT$I=11``` for example.
 
-In any case, if you want to receive a downlink response to a message sent by your device, you just have to add ",1" to the 12-bytes-max payload you send with the command ```AT$SF=...``` (e.g. ```AT$SF=4D6174746869657542657374,1``` will send the payload ```4D6174746869657542657374``` to Sigfox's network and request a downlink response).
+In any case, if you want to receive a downlink response to a message sent by your device, you just have to add ",1" to the 12-bytes-max payload you send with the command ```AT$SF=...``` (e.g. ```AT$SF=496F54456173746572456767,1``` will send the payload ```496F54456173746572456767``` to Sigfox's network and request a downlink response).
 If you set up the downlink parameter in your backend correctly (as explained above), the device will receive the downlink you wanted it to.
 
 Building your own prototype
