@@ -415,7 +415,7 @@ Finally, a webhook reply block sends the name in HEX format back to Sigfox:
 **Your data workflow is ready!**
 
 <p align="center">
-  <img width="700" src="final solution gif">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/ezgif.com-video-to-gif%20(1).gif">
 </p>
 
 Conclusion
