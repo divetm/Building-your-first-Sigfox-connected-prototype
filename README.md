@@ -3,15 +3,14 @@
 
 Introduction
 ----
-The goal of this repo is to learn how to build a real-life application using Sigfox and Sens'it.  
-Learn everything you need to know about Sigfox's technology, its advantages and its limitations. Then use that to build whatever you can imagine with the open hardware, firmware and software that is out there.  
-You can learn it in just a couple of days!
+The goal of this repo is to learn how to build your own IoT device prototype using a Sigfox-connected devkit and a couple of components.
+If you want to learn more about Sigfox's technology, don't hesitate to checkout [this repo](https://github.com/divetm/Getting-started-with-Sigfox).
+Here we will focus on getting you ready to build your first Sigfox-connected prototype from scratch.
 
-1. [Sigfox](#sigfox)  
+1. [A quick overview of what Sigfox is](#a-quick-overview-of-what-sigfox-is)  
   a. [The technology](#the-technology)  
-  b. [Sigfox Backend, Sigfox Cloud Platform, REST API and Callbacks](#sigfox-backend-sigfox-cloud-platform-rest-api-and-callbacks)  
-  c. [Visualizing your data and Sending instructions: Callbacks and Downlinks](#visualizing-your-data-and-sending-instructions-callbacks-and-downlinks)  
-  d. [AT commands](#at-commands)  
+  b. [Its limits and its advantages](#its-limits-and-its-advantages)  
+  c. [The value chain](#the-value-chain)
 
 2. [Getting started](#getting-started)  
 	a. [Devkits and firware](#devkits-and-firmware)  
@@ -31,7 +30,7 @@ You can learn it in just a couple of days!
 	f. [Creating a dashboard in Losant](#creating-a-dashboard-in-losant)
 
 
-Sigfox
+A quick overview of what Sigfox is
 ----
 ### The Technology
 Sigfox is a Low Power Wide Area Network (LPWAN) complementing existing networks to address the bulk of connected objects.  
@@ -46,3 +45,8 @@ The data can then be processed and give new insights on optimizable processes.
 However, it is important to understand that the payload (data) that can be sent over Sigfox's network is limited in:  
 * size (maximum 12 bytes) - this is intrinsic to how the LPWAN technology works, we will come back to that;
 * frequency (140 messages a day max) - that is due to the fact that Sigfox uses a public radio frequency and cannot hog it
+
+### Its limits and its advantages
+jbadfn
+
+### The value chain
