@@ -293,7 +293,7 @@ Your device should look like this:
 </p>
 
 ### The firmware
-**WARNING!**
+**WARNING!**  
 *This firmware has been optimized, but is still very heavy. It is possible that you encounter some stability problems with your devkit once you upload this firmware to it. Indeed, the program uses up a considerable part of the flash memory, and Arduinos don't like that...*
 
 You will find the complete and commented firmware [here](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Firmware/fingerprint_webinar_2.ino).
