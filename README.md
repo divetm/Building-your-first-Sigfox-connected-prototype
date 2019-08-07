@@ -339,10 +339,10 @@ A query will give us the name associated to the scanned fingerprint in the "Data
 
 <div id="mainDiv">
     <div id="divOne" class="boxes">
-	<img align="left" width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
+	<img align="left" width="50%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
     </div>
     <div id="divTwo" class="boxes">
-	<img align="right" width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
+	<img align="right" width="50%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
     </div>
 </div>
 
