@@ -341,7 +341,7 @@ The webhook will trigger the workflow. The [first "Function" block](https://gith
 
 A query will give us the name associated to the scanned fingerprint in the "Data Table" we created on Losant.
 
-<div id="mainDiv">
+<div id="mainDiv" width="80%">
     <div id="divOne" class="boxes">
 	<img hspace="5%" width="40%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
     </div>
@@ -364,7 +364,7 @@ If so, the workflow continues with a second "Conditional" block that checks if t
 
 The corresponding action is taken on the Losant's data table (inserted or deleted row)
 
-<div id="mainDiv">
+<div id="mainDiv" width="80%">
     <div id="divOne" class="boxes">
 	<img hspace="5%" width="40%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png">
     </div>
