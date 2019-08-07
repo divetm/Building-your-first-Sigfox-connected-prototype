@@ -273,9 +273,13 @@ and connect them in the following manner:
 This will give you an analog reading of the photoresistor's voltage, on the devkit's pin A0. By placing the photoresistor right under the fingerprint scanner's little window, the device will be able to detect a finger being pressed against the scanner, as the photoresistor's value will increase. We use this to activate the scanner only when a finger is detected and, therefore, save some energy.
 
 * The LCD display comes with an I2C Interface Adapter that you will need to solder to the display itself, if it is not already in place. It is pretty straight forward: there are 16 pinholes in the LCD display and 16 pins on the adapter. Holding the LCD display upside down and the adapter facing up, just insert one in the other and solder the 16 pins. You should get something like this:
+
+
 <p align="center">
-  <img width="400" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/3_25_4.jpg">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/adapteri2c.png">
 </p>
+
+
 Then connect the adapter to the devkit like this:
 
 <p align="center">
