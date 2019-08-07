@@ -341,7 +341,7 @@ The webhook will trigger the workflow. The [first "Function" block](https://gith
 
 A query will give us the name associated to the scanned fingerprint in the "Data Table" we created on Losant.
 
-Solarized dark             |  Solarized Ocean
+Getting row (specify query)|  Getting row (define result path)
 :-------------------------:|:-------------------------:
 ![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png)  |  ![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png)
 
@@ -359,24 +359,15 @@ If so, the workflow continues with a second "Conditional" block that checks if t
 
 The corresponding action is taken on the Losant's data table (inserted or deleted row)
 
-Solarized dark             |  Solarized Ocean
+Deleting row               |  Inserting row
 :-------------------------:|:-------------------------:
-![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png)  |  ![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.19.07.png)
+![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png)  |  ![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2011.35.30.png)
 
 A webhook reply block sends a simple "01" response as a symbol of a successful process.
 
-<p align="center">
-  <img width="600" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.25.28.png">
-</p>
-
-```
-{
-  "{{data.body.device}}":
-  {
-    "downlinkData": "0000000000000001"
-  }
-}
-```
+Webhook reply block        |  Reply Body
+:-------------------------:|:-------------------------
+![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.25.28.png)  |  ```{```<br>&emsp;```"{{data.body.device}}":```<br>&emsp;```{```<br>&emsp;&emsp;```"downlinkData": "0000000000000001"```<br>&emsp;```}```<br>```}```
 
 If the scanned fingerprint is not the administrator's, the device's attributes on Losant are updated.
 
@@ -387,18 +378,9 @@ If the scanned fingerprint is not the administrator's, the device's attributes o
 Then, a ["Function" block](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Losant/secondFunctionBlockInWorkflow.js) translates the name (that we got from the query) from ASCII format to HEX format (on Sigfox the data has to be transfered in HEX format) and checks that the payload will be exactly 8-bytes long (avoids getting an error from Sigfox).  
 Finally, a webhook reply block sends the name in HEX format back to Sigfox:
 
-<p align="center">
-  <img width="600" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.23.27.png">
-</p>
-
-```
-{
-  "{{data.body.device}}":
-  {
-    "downlinkData": "{{data.body.nombre}}"
-  }
-}
-```
+Webhook reply block        |  Reply Body
+:-------------------------:|:-------------------------
+![](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.23.27.png)  |  ```{```<br>&emsp;```"{{data.body.device}}":```<br>&emsp;```{```<br>&emsp;&emsp;```"downlinkData": "{{data.body.nombre}}"```<br>&emsp;```}```<br>```}```
 
 **Your data workflow is ready!**
 
