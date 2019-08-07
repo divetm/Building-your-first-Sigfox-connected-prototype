@@ -343,10 +343,10 @@ A query will give us the name associated to the scanned fingerprint in the "Data
 
 <div id="mainDiv">
     <div id="divOne" class="boxes">
-	<img hspace="10" width="45%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
+	<img hspace="5%" width="40%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
     </div>
     <div id="divTwo" class="boxes">
-	<img hspace="10" width="45%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
+	<img hspace="5%" width="40%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
     </div>
 </div>
 
@@ -366,10 +366,10 @@ The corresponding action is taken on the Losant's data table (inserted or delete
 
 <div id="mainDiv">
     <div id="divOne" class="boxes">
-	<img hspace="10" width="45%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png">
+	<img hspace="5%" width="40%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png">
     </div>
     <div id="divTwo" class="boxes">
-	<img hspace="10" width="45%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.19.07.png">
+	<img hspace="5%" width="40%" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.19.07.png">
     </div>
 </div>
 
