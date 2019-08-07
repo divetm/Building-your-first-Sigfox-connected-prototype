@@ -337,13 +337,18 @@ The webhook will trigger the workflow. The [first "Function" block](https://gith
 
 A query will give us the name associated to the scanned fingerprint in the "Data Table" we created on Losant.
 
-<p align="left">
-  <img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
-</p>
-
-<p align="right">
-  <img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
-</p>
+<div id="mainDiv">
+    <div id="divOne" class="boxes">
+	<p align="left">
+		<img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
+	</p>
+    </div>
+    <div id="divTwo" class="boxes">
+	<p align="right">
+		<img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
+	</p>
+    </div>
+</div>
 
 A "Conditional" block checks if the scanned fingerprint is the administrator's.
 
@@ -370,7 +375,7 @@ The corresponding action is taken on the Losant's data table (inserted or delete
 A webhook reply block sends a simple "01" response as a symbol of a successful process.
 
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.20.38.png">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.25.28.png">
 </p>
 
 ```
