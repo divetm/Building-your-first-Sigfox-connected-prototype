@@ -259,13 +259,13 @@ Connecting everything is pretty simple:
 and connect them in the following manner:
 
 <p align="center">
-  <img width="700" src="fingerprint sensor connected to devkit">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.00.39.png">
 </p>
 
 * In order to create a finger presence detector with a photoresistor and a resistor, build the following circuit:
 
 <p align="center">
-  <img width="700" src="photoresistor and resistor connected to devkit">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.03.26.png">
 </p>
 
 This will give you an analog reading of the photoresistor's voltage, on the devkit's pin A0. By placing the photoresistor right under the fingerprint scanner's little window, the device will be able to detect a finger being pressed against the scanner, as the photoresistor's value will increase. We use this to activate the scanner only when a finger is detected and, therefore, save some energy.
@@ -273,19 +273,19 @@ This will give you an analog reading of the photoresistor's voltage, on the devk
 * The LCD display comes with an I2C Interface Adapter that you will need to solder to the display itself, if it is not already in place. It is pretty straight forward: there are 16 pinholes in the LCD display and 16 pins on the adapter. Holding the LCD display upside down and the adapter facing up, just insert one in the other and solder the 16 pins. You should get something like this:
 
 <p align="center">
-  <img width="700" src="LCD display with adapter downloaded from internet">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/3_25_4.jpg">
 </p>
 
 Then connect the adapter to the devkit like this:
 
 <p align="center">
-  <img width="700" src="lcd display connected to the devkit">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.05.19.png">
 </p>
 
 Your device will look like this:
 
 <p align="center">
-  <img width="700" src="final devkit real pic">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.09.32.png">
 </p>
 
 ### The firmware
@@ -313,7 +313,7 @@ Once you have set up the bidirectional communication between Sigfox's backend an
 The first thing you want to do is create a device on Losant called "Fingerprint scanner", for example. Add the following attributes to it:
 
 <p align="center">
-  <img width="700" src="final devkit real pic">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.11.18.png">
 </p>
 
 This will allow you to easily create a dashboard, should you need to visualize these attributes' values, on Losant.
@@ -321,13 +321,13 @@ This will allow you to easily create a dashboard, should you need to visualize t
 Then, create a "Data table" on Losant that contains the Fingerprint IDs and the names associated to each one of them:
 
 <p align="center">
-  <img width="700" src="final devkit real pic">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.12.11.png">
 </p>
 
 Finally, build the following workflow:
 
 <p align="center">
-  <img width="700" src="final devkit real pic">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.13.35.png">
 </p>
 
 The webhook will trigger the workflow. The [first "Function" block](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Losant/firstFunctionBlockInWorkflow.js) parses the 3-byte long message sent by the device and translates it into the following variables:
@@ -337,36 +337,40 @@ The webhook will trigger the workflow. The [first "Function" block](https://gith
 
 A query will give us the name associated to the scanned fingerprint in the "Data Table" we created on Losant.
 
-<p align="center">
-  <img width="700" src="query">
+<p align="left">
+  <img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
+</p>
+
+<p align="right">
+  <img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
 </p>
 
 A "Conditional" block checks if the scanned fingerprint is the administrator's.
 
 <p align="center">
-  <img width="700" src="1st conditional block">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.16.40.png">
 </p>
 
 If so, the workflow continues with a second "Conditional" block that checks if the administrator decided to add or erase a fingerprint from the records.
 
 <p align="center">
-  <img width="700" src="2nd conditional block">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.17.40.png">
 </p>
 
-The corresponding action is taken on the Losant's data table (added or deleted row).
+The corresponding action is taken on the Losant's data table (inserted or deleted row).
 
 <p align="left">
-  <img width="700" src="add row">
+  <img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png">
 </p>
 
 <p align="right">
-  <img width="700" src="erase row">
+  <img width="350" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.19.07.png">
 </p>
 
 A webhook reply block sends a simple "01" response as a symbol of a successful process.
 
 <p align="center">
-  <img width="700" src="webhook reply 01">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.20.38.png">
 </p>
 
 ```
@@ -378,11 +382,17 @@ A webhook reply block sends a simple "01" response as a symbol of a successful p
 }
 ```
 
-If the scanned fingerprint is not the administrator's, the device's attributes on Losant are updated. Then, a ["Function" block](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Losant/secondFunctionBlockInWorkflow.js) translates the name (that we got from the query) from ASCII format to HEX format (on Sigfox the data has to be transfered in HEX format) and checks that the payload will be exactly 8-bytes long (avoids getting an error from Sigfox).  
+If the scanned fingerprint is not the administrator's, the device's attributes on Losant are updated.
+
+<p align="center">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.22.34.png">
+</p>
+
+Then, a ["Function" block](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Losant/secondFunctionBlockInWorkflow.js) translates the name (that we got from the query) from ASCII format to HEX format (on Sigfox the data has to be transfered in HEX format) and checks that the payload will be exactly 8-bytes long (avoids getting an error from Sigfox).  
 Finally, a webhook reply block sends the name in HEX format back to Sigfox:
 
 <p align="center">
-  <img width="700" src="webhook reply name">
+  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.23.27.png">
 </p>
 
 ```
