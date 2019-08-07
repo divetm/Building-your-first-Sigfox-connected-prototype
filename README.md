@@ -296,7 +296,7 @@ Your device should look like this:
 **WARNING!**  
 *This firmware has been optimized, but is still very heavy. It is possible that you encounter some stability problems with your devkit once you upload this firmware to it. Indeed, the program uses up a considerable part of the flash memory, and Arduinos don't like that...*
 
-You will find the complete and commented firmware [here](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Firmware/fingerprint_webinar_2.ino).
+You will find the complete and commented firmware [here](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Firmware/fingerprint_english.ino). (Spanish version also available [here](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Firmware/huellas_español.ino))
 
 You might need to download some of the libraries used if you haven't used them before (click [here](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/tree/master/Firmware/Libraries) to see the libraries you need). After that you will just need to upload it to your devkit.  
 
