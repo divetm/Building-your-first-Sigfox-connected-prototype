@@ -23,6 +23,7 @@ If you've read [this repo](https://github.com/divetm/Getting-started-with-Sigfox
   c. [The firmware](#the-firmware)  
   d. [Using Losant to design your data workflow](#using-losant-to-design-your-data-workflow)
 
+
 A quick overview of what Sigfox is
 ----
 ### The Technology
@@ -83,9 +84,11 @@ That is what we call a downlink (in opposition to the uplink messages described 
 Downlink messages cannot exceed 8 bytes, and Sigfox only allows 6 downlink messages max per device a day.  
 Here you can see what UNB means and how Sigfox uses its bandwidth to send messages in both directions:
 
+
 <p align="center">
   <img width="800" src="https://github.com/divetm/Getting-started-with-Sigfox/blob/master/images/frequencies.png">
 </p>
+
 
 ###### *(RCx are the different radio regions in the world - the public radio frequency used by Sigfox in each region of the world. Your device has to be compatible with your region's radio frequency - the antennas around you will be listenning on that frequency)*
 
@@ -93,6 +96,7 @@ When your device wants to receive a downlink message, the device is actually the
 
 ### The value chain
 This is how Sigfox intervenes in your value chain:
+
 
 
 <p align="center">
@@ -126,7 +130,6 @@ Getting started
 ### Devkits and firmware
 There are a lot of options out there to get started with Sigfox and start developing your own device.
 As long as you have a Sigfox module on your devkit, you're good to go. Connect whatever sensor you need and start coding.
-
 <p align="center">
   <img width="700" src="https://clustertic.org/wp-content/uploads/2019/01/Taller-de-DevKit-Sigfox-2-1021x580.jpg">
 </p>
@@ -136,7 +139,6 @@ https://partners.sigfox.com/products/kit
 
 If you've used Arduino or Raspberry Pi before, there are some compatible devkits in the link above. They are pretty easy to handle and usually come with extensive documentation on how to enable the Sigfox module and how to send a message.  
 [Examples using an Arduino compatible board like MKR FOX 1200](https://www.arduino.cc/en/Reference/SigFox)
-
 
 <p align="center">
   <img width="250" src="https://boutique.semageek.com/5590-large_default/arduino-mkr-fox-1200-sans-antenne.jpg">
@@ -244,7 +246,7 @@ To build this prototype you will only need a few things:
 * A LCD display. Here we use Sunfounder's LCD display (2x16) that you can buy [here](https://www.sunfounder.com/i2clcd.html)
 
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/IMG_4361.jpg">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/IMG_4361.jpg">
 </p>
 
 * Additionally, we decided to use a photoresistor and a resistor to build a finger presence detector
@@ -259,33 +261,31 @@ Connecting everything is pretty simple:
 and connect them in the following manner:
 
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.00.39.png">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.00.39.png">
 </p>
 
 * In order to create a finger presence detector with a photoresistor and a resistor, build the following circuit:
 
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.03.26.png">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.03.26.png">
 </p>
 
 This will give you an analog reading of the photoresistor's voltage, on the devkit's pin A0. By placing the photoresistor right under the fingerprint scanner's little window, the device will be able to detect a finger being pressed against the scanner, as the photoresistor's value will increase. We use this to activate the scanner only when a finger is detected and, therefore, save some energy.
 
 * The LCD display comes with an I2C Interface Adapter that you will need to solder to the display itself, if it is not already in place. It is pretty straight forward: there are 16 pinholes in the LCD display and 16 pins on the adapter. Holding the LCD display upside down and the adapter facing up, just insert one in the other and solder the 16 pins. You should get something like this:
-
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/3_25_4.jpg">
+  <img width="400" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/3_25_4.jpg">
 </p>
-
 Then connect the adapter to the devkit like this:
 
 <p align="center">
   <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.05.19.png">
 </p>
 
-Your device will look like this:
+Your device should look like this:
 
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.09.32.png">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.09.32.png">
 </p>
 
 ### The firmware
@@ -339,40 +339,40 @@ A query will give us the name associated to the scanned fingerprint in the "Data
 
 <div id="mainDiv">
     <div id="divOne" class="boxes">
-	<img hspace="10" width="400" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
+	<img hspace="10" width="380" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.01.png">
     </div>
     <div id="divTwo" class="boxes">
-	<img hspace="10" width="400" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
+	<img hspace="10" width="380" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.15.24.png">
     </div>
 </div>
 
 A "Conditional" block checks if the scanned fingerprint is the administrator's.
 
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.16.40.png">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.16.40.png">
 </p>
 
 If so, the workflow continues with a second "Conditional" block that checks if the administrator decided to add or erase a fingerprint from the records.
 
 <p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.17.40.png">
+  <img width="500" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.17.40.png">
 </p>
 
 The corresponding action is taken on the Losant's data table (inserted or deleted row)
 
 <div id="mainDiv">
     <div id="divOne" class="boxes">
-	<img hspace="10" width="400" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png">
+	<img hspace="10" width="380" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.18.56.png">
     </div>
     <div id="divTwo" class="boxes">
-	<img hspace="10" width="400" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.19.07.png">
+	<img hspace="10" width="380" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.19.07.png">
     </div>
 </div>
 
 A webhook reply block sends a simple "01" response as a symbol of a successful process.
 
-<p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.25.28.png">
+<p align="left">
+  <img width="600" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.25.28.png">
 </p>
 
 ```
@@ -393,8 +393,8 @@ If the scanned fingerprint is not the administrator's, the device's attributes o
 Then, a ["Function" block](https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/Losant/secondFunctionBlockInWorkflow.js) translates the name (that we got from the query) from ASCII format to HEX format (on Sigfox the data has to be transfered in HEX format) and checks that the payload will be exactly 8-bytes long (avoids getting an error from Sigfox).  
 Finally, a webhook reply block sends the name in HEX format back to Sigfox:
 
-<p align="center">
-  <img width="700" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.23.27.png">
+<p align="left">
+  <img width="600" src="https://github.com/divetm/Building-your-first-Sigfox-connected-prototype/blob/master/images/Captura%20de%20Pantalla%202019-08-07%20a%20la(s)%2010.23.27.png">
 </p>
 
 ```
